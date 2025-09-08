@@ -1,5 +1,5 @@
 
-
+let rectdrum;
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -8,38 +8,41 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER)
   textSize(24);
   
+  rectdrum = drum;
+
+ 
   // WHITE OUTSIDE RECTANGLES
 
-  fill(255);
-rect(50, 100, 50, 160);
+  fill(255, 0, 200);
+rect(50, 100, 50, 160);  //rect(50, 100, 50, 160); 
 
-rect(230, 200, 150, 60);
+rect(230, 200, 150, 60); //rect(230, 200, 150, 60);
 
-rect(90, 300, 90, 200);
+rect(90, 300, 90, 200); //rect(90, 300, 90, 200);
 
-rect(80, 920, 300, 50);~// Side ways one at bottom
+rect(80, 920, 300, 50);~ // Side ways one at bottom rect(80, 920, 300, 50);
 
-rect(310, 920, 50, 50);~// Side ways one at bottom
+rect(310, 920, 50, 50);~ // Side ways one at bottom rect(310, 920, 50, 50)
 
-rect(460, 920, 140, 50);~// Side ways one at bottom
+rect(460, 920, 140, 50);~ // Side ways one at bottom rect(460, 920, 140, 50);
 
-rect(300, 500, 200, 400); // Large going down
+rect(300, 500, 200, 400); // Large going down rect(300, 500, 200, 400);
 
-rect(400, 120, 150, 200); // medium going down
+rect(400, 120, 150, 200); // medium going down rect(400, 120, 150, 200); 
 
-rect(350, 800, 370, 170); // LARGE SIDEWAYS
+rect(350, 800, 370, 170); // LARGE SIDEWAYS rect(350, 800, 370, 170);
 
-rect(50, 500, 280, 80); // Middle way sideways
+rect(50, 500, 280, 80); // Middle way sideways rect(50, 500, 280, 80);
 
-rect(200, 80, 200, 140); // top small sideways
+rect(200, 80, 200, 140); // top small sideways rect(200, 80, 200, 140);
 
-rect(470, 510, 80, 300); // Side ways long
+rect(470, 510, 80, 300); // Side ways long rect(470, 510, 80, 300);
 
-rect(470, 280, 90, 90);
+rect(470, 280, 90, 90); // rect(470, 280, 90, 90);
 
-rect(80, 660, 130, 200);
+rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 
-rect(80, 826, 100, 100);
+rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
 
 
