@@ -3,11 +3,46 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
-  background(20)
+  background(76, 31, 143)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
   
+  // WHITE OUTSIDE RECTANGLES
+
+  fill(255);
+rect(50, 100, 50, 160);
+
+rect(230, 200, 150, 60);
+
+rect(90, 300, 90, 200);
+
+rect(80, 920, 300, 50);~// Side ways one at bottom
+
+rect(310, 920, 50, 50);~// Side ways one at bottom
+
+rect(460, 920, 140, 50);~// Side ways one at bottom
+
+rect(300, 500, 200, 400); // Large going down
+
+rect(400, 120, 150, 200); // medium going down
+
+rect(350, 800, 370, 170); // LARGE SIDEWAYS
+
+rect(50, 500, 280, 80); // Middle way sideways
+
+rect(200, 80, 200, 140); // top small sideways
+
+rect(470, 510, 80, 300); // Side ways long
+
+rect(470, 280, 90, 90);
+
+rect(80, 660, 130, 200);
+
+rect(80, 826, 100, 100);
+
+
+
    //let bar_spacing = height / 10;
    //let bar_height = width / 12;
    //let bar_pos_x = width / 2;
@@ -44,11 +79,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    //text(words, width/2, height/3);
 
 
-   noStroke();
-   //Star Making that falls
-triangle(200, 180, 200, 200, 210, 195);
-triangle(220, 190, 200, 200, 210, 205);
-triangle(212, 210, 200, 200, 205, 215);
-triangle(188, 210, 200, 200, 195, 215);
-triangle(180, 190, 200, 200, 190, 195);
+   
+
 }
+
