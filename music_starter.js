@@ -43,9 +43,12 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
    //textSize(vocal);
    //text(words, width/2, height/3);
 
+
+   noStroke();
    //Star Making that falls
-triangle(200, 180, 195, 200, 205, 200);
-triangle(220, 190, 200, 195, 200, 205);
-triangle(160, 160, 200, 140, 200, 180);
-triangle(240, 160, 200, 140, 200, 180);
+triangle(200, 180, 200, 200, 210, 195);
+triangle(220, 190, 200, 200, 210, 205);
+triangle(212, 210, 200, 200, 205, 215);
+triangle(188, 210, 200, 200, 195, 215);
+triangle(180, 190, 200, 200, 190, 195);
 }
