@@ -77,15 +77,21 @@ rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 
 rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
-var numBars = 10;
+// LINES THAT WILL BUMP TOO BEAT (please work!!)
+var numBars = 12;
 var barWidth = 30;
 var spacing = 15;
 
 push();
-strokeWeight(2);
-stroke(252, 43, 120);
+strokeWeight(4);
+stroke(255);
 
-for (var i = 0; i < numBArs; i++) 
+for (var i = 0; i < numBars; i++) {
+   var x = 50 + i * (barWidth + spacing);
+   var barHeight = map(drum, 0, 100, 5, height / 2);
+   line(x, height, x, height - barHeight);
+} 
+pop();
 // Lines that will bump to the drums
 
 //var drumMap = map(drum, 0, 100, 5, 480);
