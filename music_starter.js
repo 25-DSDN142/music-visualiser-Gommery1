@@ -153,10 +153,13 @@ ellipse(450, 840, 60, bassstar); // bottom right star
 
 push()
 colorMode(HSL)
-let party = map(bass, 0, 100, 285, 309);
-fill(party, 94, 64);
+let hueVal = map(bass, 0, 100, 285, 330);
+let lightVal = map(bass, 0, 100, 30, 70);
+
+fill(hueVal, 90, lightVal);
 ellipse(270, 480, fall);
 pop()
+
 
 noStroke()
 
