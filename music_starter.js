@@ -79,18 +79,20 @@ rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
 // Lines that will bump to the drums
 
-var drumMap = map(drum, 0, 100, 5, 70);
+var drumMap = map(drum, 0, 100, 5, 480);
 var lengthOfLine = 300;
 var lineStart = 100;
-var lineEnd = Linestart + lengthOfLine;
+var lineEnd = lineStart + lengthOfLine;
 
+push();
+colorMode(HSL);
+strokeWeight(5);
 stroke(drumMap, 80, 50);
-strokeWeight(2);
 for (var i = 1; i <= drumMap; i++){
 var lineStep = i * 20;
 line(lineStart, lineStep, lineEnd, lineStep);
-
 }
+pop();
 
 noStroke();
 // Floating ellipse balls
