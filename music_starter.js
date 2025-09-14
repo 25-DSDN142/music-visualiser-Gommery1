@@ -77,22 +77,30 @@ rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 
 rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
-// Lines that will bump to the drums
-
-var drumMap = map(drum, 0, 100, 5, 480);
-var lengthOfLine = 300;
-var lineStart = 100;
-var lineEnd = lineStart + lengthOfLine;
+var numBars = 10;
+var barWidth = 30;
+var spacing = 15;
 
 push();
-colorMode(HSL);
-strokeWeight(5);
-stroke(drumMap, 80, 50);
-for (var i = 1; i <= drumMap; i++){
-var lineStep = i * 20;
-line(lineStart, lineStep, lineEnd, lineStep);
-}
-pop();
+strokeWeight(2);
+stroke(252, 43, 120);
+
+for (var i = 0; i < numBArs; i++) 
+// Lines that will bump to the drums
+
+//var drumMap = map(drum, 0, 100, 5, 480);
+//var lengthOfLine = 300;
+//var lineStart = 100;
+//var lineEnd = lineStart + lengthOfLine;
+//push();
+//colorMode(HSL);
+//strokeWeight(5);
+//stroke(drumMap, 80, 50);
+//for (var i = 1; i <= drumMap; i++){
+//var lineStep = i * 20;
+//line(lineStart, lineStep, lineEnd, lineStep);
+//}
+//pop();
 
 noStroke();
 // Floating ellipse balls
