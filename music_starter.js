@@ -62,7 +62,7 @@ let spiralWindowEnd = spiralWindowStart + 1200;
 
    push();
    translate(width/2, height/2);
-   strokeWeight(14);
+   strokeWeight(16);
    stroke(110, 43, 140);
 
    for (let i = 0; i <50; i++){
@@ -80,6 +80,12 @@ let spiralWindowEnd = spiralWindowStart + 1200;
    }
   }
 
+// Spinning ellipses that show up at songs slow part
+let spinActive = false;
+let spinStartFrame = 0;
+let spinDuration = 1200;
+let spinAngle = 0;
+
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
@@ -92,7 +98,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   fall = map(other, 0, 100, 0, 60);
   bassstar = map(bass,0, 100, 30, 250);
  
-  // WHITE OUTSIDE RECTANGLES
+  // purple background RECTANGLES
 
   fill(255, 0, 200);
 rect(50, 100, 50, 160);  //rect(50, 100, 50, 160); 
@@ -160,21 +166,6 @@ barHeights[i] = lerp(barHeights[i], targetHeight, 0.1);
 pop();
 }
 
-// Lines that will bump to the drums
-
-//var drumMap = map(drum, 0, 100, 5, 480);
-//var lengthOfLine = 300;
-//var lineStart = 100;
-//var lineEnd = lineStart + lengthOfLine;
-//push();
-//colorMode(HSL);
-//strokeWeight(5);
-//stroke(drumMap, 80, 50);
-//for (var i = 1; i <= drumMap; i++){
-//var lineStep = i * 20;
-//line(lineStart, lineStep, lineEnd, lineStep);
-//}
-//pop();
 
 noStroke();
 // Floating ellipse balls
