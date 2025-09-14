@@ -257,6 +257,10 @@ point(lastX, lastY);
   noStroke();
 
 
+  //Spiral that will play at the 1 minute 11 mark
+let spiralAngle = 0;
+let spiralR = 150;
+let spiralActive = false;
 
   
 }
