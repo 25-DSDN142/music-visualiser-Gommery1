@@ -86,6 +86,26 @@ let spinStartFrame = 0;
 let spinDuration = 1200;
 let spinAngle = 0;
 
+function drawSpinningEllipses(bass) {
+   if (!spinActive) return;
+
+   push();
+   translate(width/2, height/2);
+   colorMode(HSL);
+
+   spinAngle += 0.05;
+
+   for (let i = 0 <6; i++) {
+      let angle = spinAngle + (TWO_PI /6) *i;
+      let radius = 120;
+      let x = radius * cos(angle);
+      let y = radius * sin(angle);
+
+      
+   }
+}
+
+
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
