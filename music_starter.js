@@ -1,3 +1,11 @@
+var numBars = 12;
+var barWidth = 30;
+var spacing = 15;
+var barHeights = [];
+
+for (var i = 0; i < numBars; i++) {
+   barHeights[i] = 0;
+}
 
 let rectdrum;
 
@@ -78,20 +86,37 @@ rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
 // LINES THAT WILL BUMP TOO BEAT (please work!!)
-var numBars = 12;
-var barWidth = 30;
-var spacing = 15;
+//var numBars = 12;
+//var barWidth = 30;
+//var spacing = 15;
+//var barHeights = [];
 
+//for (var i = 0; i < numBars; i++) {
+  // barHeights[i] = 0;
+//}
+
+function drawBars(drum) {
 push();
 strokeWeight(4);
 stroke(255);
 
+var centerIndex = (numBars - 1) /2;
+
 for (var i = 0; i < numBars; i++) {
    var x = 50 + i * (barWidth + spacing);
-   var barHeight = map(drum, 0, 100, 5, height / 2);
-   line(x, height, x, height - barHeight);
+
+var distanceFromCenter = Math.abs(i - centerIndex);
+var maxHeight = map(distanceFromCenter, 0, centerIndex, height / 2, height / 6);
+
+var targetHeight = map(drum, 0, 100, 5, maxHeight)
+
+barHeights[i] = lerp(barHeights[i], targetHeight, 0.1);
+
+   
+   line(x, height, x, height - barHeights [i]);
 } 
 pop();
+}
 // Lines that will bump to the drums
 
 //var drumMap = map(drum, 0, 100, 5, 480);
