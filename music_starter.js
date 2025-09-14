@@ -53,6 +53,7 @@ let spiralAngle = 0;
 let spiralR = 0;
 let spiralActive = false;
 let spiralDuration = 1200;
+let spiralStartFrame = 0;
 
   function drawSpiral() {
    if (!spiralActive) return;
@@ -72,7 +73,7 @@ let spiralDuration = 1200;
    }
    pop();
 
-   if (frameCount - spiralStartFram > spiralDuration) {
+   if (frameCount - spiralStartFrame > spiralDuration) {
   spiralActive = false;
    }
   }
@@ -298,6 +299,7 @@ point(lastX, lastY);
 spiralActive = true;
 spiralAngle = 0;
 spiralR = 0;
+spiralStartFrame = frameCount;
   }
 
 drawSpiral();
