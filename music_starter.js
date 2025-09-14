@@ -199,9 +199,9 @@ noStroke()
 angleMode(RADIANS)
   add_to_history(vocal_history, vocal);
 translate(270, 480);
-strokeWeight(5);
+strokeWeight(8);
 stroke(250, 160, 248);
-  stroke(10);
+  //stroke(10);
   //r = vocal
   for(let i = 0; i < 20; i++){
   historyVal = vocal_history[vocal_history.length - i]
@@ -213,8 +213,12 @@ let y = r * sin(angle);
   }
   angle += 0.05; //random(-0.1, 0.1);
   r -= random(-2, 2);
-   
+  
+  let lastR = map(vocal, 0, 100, 30, 70);
+
   noStroke();
+
+
 }
 
 
