@@ -1,4 +1,5 @@
-var numBars = 12;
+
+var numBars = 11;
 var barWidth = 30;
 var spacing = 15;
 var barHeights = [];
@@ -52,6 +53,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectdrum = map(drum, 0, 100, 50, 350);
   fall = map(other, 0, 100, 0, 60);
   bassstar = map(bass,0, 100, 30, 250);
+ 
   // WHITE OUTSIDE RECTANGLES
 
   fill(255, 0, 200);
@@ -85,6 +87,7 @@ rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 
 rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
+ drawBars(drum);
 // LINES THAT WILL BUMP TOO BEAT (please work!!)
 //var numBars = 12;
 //var barWidth = 30;
@@ -95,10 +98,11 @@ rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
   // barHeights[i] = 0;
 //}
 
+// BARS BUMPIN THAT
 function drawBars(drum) {
 push();
-strokeWeight(4);
-stroke(255);
+strokeWeight(7);
+stroke(255, 189, 252);
 
 var centerIndex = (numBars - 1) /2;
 
@@ -106,9 +110,9 @@ for (var i = 0; i < numBars; i++) {
    var x = 50 + i * (barWidth + spacing);
 
 var distanceFromCenter = Math.abs(i - centerIndex);
-var maxHeight = map(distanceFromCenter, 0, centerIndex, height / 2, height / 6);
+var maxHeight = map(distanceFromCenter, 0, centerIndex, height / 3, height / 7);
 
-var targetHeight = map(drum, 0, 100, 5, maxHeight)
+var targetHeight = map(drum, 0, 100, -10, maxHeight * 1.2);
 
 barHeights[i] = lerp(barHeights[i], targetHeight, 0.1);
 
@@ -117,6 +121,7 @@ barHeights[i] = lerp(barHeights[i], targetHeight, 0.1);
 } 
 pop();
 }
+
 // Lines that will bump to the drums
 
 //var drumMap = map(drum, 0, 100, 5, 480);
@@ -229,7 +234,7 @@ noStroke()
 angleMode(RADIANS)
   add_to_history(vocal_history, vocal);
 translate(270, 480);
-strokeWeight(8);
+strokeWeight(10);
 stroke(250, 160, 248);
   //stroke(10);
   //r = vocal
