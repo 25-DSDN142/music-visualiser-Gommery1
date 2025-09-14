@@ -42,7 +42,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   textSize(24);
   
   rectdrum = map(drum, 0, 100, 50, 350);
-  fall = map(other, 0, 100, 20, 60);
+  fall = map(other, 0, 100, 0, 60);
   bassstar = map(bass,0, 100, 30, 250);
   // WHITE OUTSIDE RECTANGLES
 
@@ -77,7 +77,23 @@ rect(80, 660, 130, 200); // rect(80, 660, 130, 200);
 
 rect(80, 826, 100, 100); // rect(80, 826, 100, 100)
 
-// Smaller squares 
+// Lines that will bump to the drums
+
+var drumMap = map(drum, 0, 100, 5, 70);
+var lengthOfLine = 300;
+var lineStart = 100;
+var lineEnd = Linestart + lengthOfLine;
+
+stroke(drumMap, 80, 50);
+strokeWeight(2);
+for (var i = 1; i <= drumMap; i++){
+var lineStep = i * 20;
+line(lineStart, lineStep, lineEnd, lineStep);
+
+}
+
+noStroke();
+// Floating ellipse balls
 fill(250, 147, 246);
 ellipse(400, ball1, fall);
 ball1 = ball1 +2
@@ -151,14 +167,16 @@ ellipse(90, 840, 60, bassstar); // bottom left star
 ellipse(450, 840, bassstar, 60); // bottom right star
 ellipse(450, 840, 60, bassstar); // bottom right star
 
+
+// COLOUR CHANGING CENTRE BALL
 push()
 colorMode(HSL)
 let hueVal = map(bass, 0, 100, 285, 330);
 let lightVal = map(bass, 0, 100, 30, 70);
-
 fill(hueVal, 90, lightVal);
 ellipse(270, 480, fall);
 pop()
+
 
 
 noStroke()
