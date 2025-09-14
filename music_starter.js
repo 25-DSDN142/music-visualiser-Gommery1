@@ -1,4 +1,6 @@
+ 
 
+ // Bouncing bars
 var numBars = 11;
 var barWidth = 30;
 var spacing = 15;
@@ -8,6 +10,7 @@ for (var i = 0; i < numBars; i++) {
    barHeights[i] = 0;
 }
 
+// Background floating balls
 let rectdrum;
 
 let bassstar
@@ -34,7 +37,8 @@ let ball9 = 240
 
 let angle = 0;
 let r = 150;
-
+ 
+// Vocal history for balls in circle that react to vocals
 let vocal_history = [];
 
 function add_to_history(history, d) {
@@ -43,6 +47,34 @@ function add_to_history(history, d) {
     history.shift();
   }
 }
+
+// To create spiral from that polar corodinate vid
+let spiralAngle = 0;
+let spiralR = 150;
+let spiralActive = false;
+
+  function drawSpiral() {
+   if (!spiralActive) return;
+
+   push();
+   translate(width/2, height/2);
+   strokeWeight(4);
+   stroke(252, 238, 33);
+
+   let x = spiralR * cos(spiralAngle);
+   let y = spiralR * sin(spiralAngle);
+   point(x,y);
+
+   spiralAngle += 0.04;
+   spiralR -= 0.2;
+   pop();
+
+   if (spiralR < 0) {
+      spiralActive = false;
+   }
+  }
+
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(76, 31, 143)
@@ -258,28 +290,15 @@ point(lastX, lastY);
 
 
   //Spiral that will play at the 1 minute 11 mark
-let spiralAngle = 0;
-let spiralR = 150;
-let spiralActive = false;
 
-  function drawSpiral() {
-   if (!spiralActive) return;
-
-   push();
-   translate(width/2, height/2);
-   strokeWeight(4);
-   stroke(252, 238, 33);
-
-   let x = spiralR * cos(spiralAngle);
-   let y = spiralR * sin(spiralAngle);
-   point(x,y);
-
-   spiralAngle += 0.04;
-   spiralR -= 0.2;
-   pop();
-
-   if (spiralR)
+  if (counter === 4260) {
+spiralActive = true;
+spiralAngle = 0;
+spiralR = 150;
   }
+
+drawSpiral();
+
 }
 
 
