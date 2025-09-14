@@ -23,7 +23,17 @@ let ball8 = 560
 
 let ball9 = 240
 
+let angle = 0;
+let r = 150;
 
+let vocal_history = [];
+
+function add_to_history(history, d) {
+  history.push(d);
+  if(history.length >= (width-1)/4) {
+    history.shift();
+  }
+}
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(76, 31, 143)
@@ -143,10 +153,13 @@ ellipse(450, 840, 60, bassstar); // bottom right star
 
 push()
 colorMode(HSL)
-let party = map(bass, 0, 100, 279, 311);
-fill(party, 87, 94);
+let party = map(bass, 0, 100, 285, 309);
+fill(party, 94, 64);
 ellipse(270, 480, fall);
 pop()
+
+noStroke()
+
 
 
    //let bar_spacing = height / 10;
@@ -183,9 +196,45 @@ pop()
    textAlign(CENTER);
    textSize(vocal);
    text(words, width/2, height/3);
-
-
+angleMode(RADIANS)
+  add_to_history(vocal_history, vocal);
+translate(270, 480);
+strokeWeight(5);
+stroke(250, 160, 248);
+  stroke(10);
+  //r = vocal
+  for(let i = 0; i < 20; i++){
+  historyVal = vocal_history[vocal_history.length - i]
+  r = map(historyVal, 0, 100, 30, 70)
+  let angle = map(i, 0, 20, 0, PI*2)
+let x = r * cos(angle);
+let y = r * sin(angle);
+  point(x, y);
+  }
+  angle += 0.05; //random(-0.1, 0.1);
+  r -= random(-2, 2);
    
-
+  noStroke();
 }
+
+
+// THIS IS FOR JUST BOUNCING CIRCLES 
+  // textAlign(CENTER); 
+  // textSize(vocal);
+  // text(words, width/2, height/3);
+   //angleMode(RADIANS)
+  //add_to_history(vocal_history, vocal);
+//translate(300, 300);
+  //strokeWeight(5);
+  //stroke(0);
+
+  //for(let i = 0; i < 20; i++){
+  //r = vocal
+  //let angle = map(i, 0, 20, 0, PI*2)
+//let x = r * cos(angle);
+//let y = r * sin(angle);
+  //point(x, y);
+  //angle += 0.05; //random(-0.1, 0.1);
+  //r -= random(-2, 2);
+
 
