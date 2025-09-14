@@ -50,27 +50,30 @@ function add_to_history(history, d) {
 
 // To create spiral from that polar corodinate vid
 let spiralAngle = 0;
-let spiralR = 150;
+let spiralR = 0;
 let spiralActive = false;
+let spiralDuration = 1200;
 
   function drawSpiral() {
    if (!spiralActive) return;
 
    push();
    translate(width/2, height/2);
-   strokeWeight(4);
-   stroke(252, 238, 33);
+   strokeWeight(14);
+   stroke(110, 43, 140);
 
+   for (let i = 0; i <50; i++){
    let x = spiralR * cos(spiralAngle);
    let y = spiralR * sin(spiralAngle);
    point(x,y);
 
-   spiralAngle += 0.04;
-   spiralR -= 0.2;
+   spiralAngle += 0.05;
+   spiralR += 0.3;
+   }
    pop();
 
-   if (spiralR < 0) {
-      spiralActive = false;
+   if (frameCount - spiralStartFram > spiralDuration) {
+  spiralActive = false;
    }
   }
 
@@ -291,10 +294,10 @@ point(lastX, lastY);
 
   //Spiral that will play at the 1 minute 11 mark
 
-  if (counter === 4260) {
+  if (counter >= 4260 && !spiralActive) {
 spiralActive = true;
 spiralAngle = 0;
-spiralR = 150;
+spiralR = 0;
   }
 
 drawSpiral();
