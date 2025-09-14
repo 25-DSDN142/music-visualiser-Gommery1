@@ -94,6 +94,7 @@ function drawSpinningEllipses(bass) {
 
    push();
    translate(270, 480);
+
    colorMode(HSL);
 
    spinAngle += 0.05;
@@ -111,6 +112,7 @@ function drawSpinningEllipses(bass) {
       let size = map(bass, 0, 100, 20, 80);
       ellipse(x, y, size, size * 0.7);
    }
+
    pop();
 
    if (frameCount - spinStartFrame > spinDuration) {
@@ -296,27 +298,33 @@ noStroke()
    text(words, width/2, height/3);
 angleMode(RADIANS)
   add_to_history(vocal_history, vocal);
+
+  push();
 translate(270, 480);
 strokeWeight(10);
 stroke(250, 160, 248);
   //stroke(10);
   //r = vocal
   for(let i = 0; i < 20; i++){
-  historyVal = vocal_history[vocal_history.length - i]
+ let historyVal = vocal_history[vocal_history.length - i]
   r = map(historyVal, 0, 100, 30, 70)
   let angle = map(i, 0, 20, 0, PI*2)
 let x = r * cos(angle);
 let y = r * sin(angle);
   point(x, y);
   }
-  angle += 0.05; //random(-0.1, 0.1);
-  r -= random(-2, 2);
+
+  
+
   
  let lastR = map(vocal, 0, 100, 30, 70);
 let lastX = lastR * cos(TWO_PI);
 let lastY = lastR * sin(TWO_PI);
 point(lastX, lastY);
+pop ();
 
+angle += 0.05;
+ r -= random(-2, 2);
   noStroke();
 
 
