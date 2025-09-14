@@ -81,6 +81,9 @@ let spiralWindowEnd = spiralWindowStart + 1200;
   }
 
 // Spinning ellipses that show up at songs slow part
+function setup() {
+   createCanvas(540, 960);
+}
 let spinActive = false;
 let spinStartFrame = 0;
 let spinDuration = 1200;
@@ -90,19 +93,30 @@ function drawSpinningEllipses(bass) {
    if (!spinActive) return;
 
    push();
-   translate(width/2, height/2);
+   translate(270, 480);
    colorMode(HSL);
 
    spinAngle += 0.05;
 
-   for (let i = 0 <6; i++) {
+   for (let i = 0; i < 6; i++) {
       let angle = spinAngle + (TWO_PI /6) *i;
       let radius = 120;
       let x = radius * cos(angle);
       let y = radius * sin(angle);
 
-      
+      let hueVal = map(bass, 0, 100, 285, 330);
+      let lightVal = map(bass, 0, 100, 30, 70);
+      fill(hueVal, 90, lightVal);
+
+      let size = map(bass, 0, 100, 20, 80);
+      ellipse(x, y, size, size * 0.7);
    }
+   pop();
+
+   if (frameCount - spinStartFrame > spinDuration) {
+      spinActive = false
+   }
+
 }
 
 
@@ -316,6 +330,14 @@ spiralStartFrame = frameCount;
   }
 
 drawSpiral();
+
+if (counter >= 4260 && counter <= 5460 && !spinActive) {
+   spinActive = true;
+   spinStartFrame = frameCount;
+   spinAngle = 0;
+}
+
+drawSpinningEllipses(bass);
 
 
 }
