@@ -262,7 +262,24 @@ let spiralAngle = 0;
 let spiralR = 150;
 let spiralActive = false;
 
-  
+  function drawSpiral() {
+   if (!spiralActive) return;
+
+   push();
+   translate(width/2, height/2);
+   strokeWeight(4);
+   stroke(252, 238, 33);
+
+   let x = spiralR * cos(spiralAngle);
+   let y = spiralR * sin(spiralAngle);
+   point(x,y);
+
+   spiralAngle += 0.04;
+   spiralR -= 0.2;
+   pop();
+
+   if (spiralR)
+  }
 }
 
 
