@@ -52,8 +52,10 @@ function add_to_history(history, d) {
 let spiralAngle = 0;
 let spiralR = 0;
 let spiralActive = false;
-let spiralDuration = 1200;
+let spiralDuration = 120;
 let spiralStartFrame = 0;
+let spiralWindowStart = 4260;
+let spiralWindowEnd = spiralWindowStart + 1200;
 
   function drawSpiral() {
    if (!spiralActive) return;
@@ -295,7 +297,7 @@ point(lastX, lastY);
 
   //Spiral that will play at the 1 minute 11 mark
 
-  if (counter >= 4260 && !spiralActive) {
+  if (counter >= spiralWindowStart && counter <= spiralWindowEnd && !spiralActive) {
 spiralActive = true;
 spiralAngle = 0;
 spiralR = 0;
@@ -303,6 +305,7 @@ spiralStartFrame = frameCount;
   }
 
 drawSpiral();
+
 
 }
 
